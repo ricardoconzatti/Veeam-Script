@@ -31,6 +31,9 @@ else {
 $GetRepo = Get-VBRBackupRepository
 write-host "# Repository Backup" -foregroundcolor "green"
 write-host "Number:"$GetRepo.Count"`n"
+if ($GetRepo.Count -eq 0) {
+	write-host "You don't have any repository backup"
+}
 if ($GetRepo.Count -eq 1) {
 	write-host "Name:"$GetRepo.Name
 	write-host "Path:"$GetRepo.Path
@@ -54,6 +57,9 @@ else {
 $GetBkp = Get-VBRBackup
 write-host "# Backup" -foregroundcolor "green"
 write-host "Number:"$GetBkp.Count"`n"
+if ($GetBkp.Count -eq 0) {
+	write-host "You don't have any backup"
+}
 if ($GetBkp.Count -eq 1) {
 	write-host "Job name:"$GetBkp.JobName
 	write-host "Job type:"$GetBkp.JobType
@@ -75,6 +81,9 @@ else {
 $GetJob = Get-VBRJob
 write-host "# Job" -foregroundcolor "green"
 write-host "Number:"$GetJob.Count"`n"
+if ($GetJob.Count -eq 0) {
+	write-host "You don't have any job"
+}
 if ($GetJob.Count -eq 1) {
 	write-host "Name:"$GetJob.Name
 	write-host "Type:"$GetJob.IsForeverIncremental
